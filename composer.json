@@ -1,11 +1,11 @@
 {
-    "name": "tlissak/imageoptimization",
+    "name": "tlissak/imageoptimisation",
     "description": "Windows image optimisation using binnaries jpegtran,pngquant,gifsicle",
     "type": "library",
     "license": "GPL-3.0",
     "homepage": "https://github.com/tlissak/ImageOptimisation",
     "require": {
-      
+
     },
     "authors": [
         {
