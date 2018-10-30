@@ -3,6 +3,7 @@
     "description": "Windows image optimisation using binnaries jpegtran,pngquant,gifsicle",
     "type": "library",
     "license": "GPL-3.0",
+    "homepage": "https://github.com/tlissak/ImageOptimisation",
     "require": {
       "php": ">=5.4"
     },
@@ -18,5 +19,8 @@
         "url": "https://github.com/tlissak/ImageOptimisation"
       }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+      "files": ["ImageOptimisation.php"]
+    }
 }
