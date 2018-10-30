@@ -19,7 +19,7 @@
         "url": "https://github.com/tlissak/ImageOptimisation"
       }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
       "files": ["ImageOptimisation.php"]
     }
