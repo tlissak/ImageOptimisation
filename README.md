@@ -7,3 +7,10 @@ Simply execute in commande line the binary path with file as argument
 ```php
 composer require tlissak/imageoptimisation
 ```
+
+
+usage :
+```php
+$imageoptimize = new ImageOptimisation('image.jpg') ;
+$imageoptimize->optimize() ;
+```

@@ -11,7 +11,7 @@ class  ImageOptimisation{
 
     public function __construct($file)
     {
-        $this->file = $file ;
+        $this->file = realpath($file) ;
     }
 
     public function optimize()
@@ -40,18 +40,18 @@ class  ImageOptimisation{
 
     public function exec($type){
 
-        $bin_path = realpath(str_replace($_SERVER['SCRIPT_NAME'],'',$_SERVER['SCRIPT_FILENAME'])).'\bin\\';
+        $bin_path = realpath( __DIR__ .'/bin').DIRECTORY_SEPARATOR ;
 
-        $jpg = 'jpegtran.exe -optimize  -progressive -copy none @file @file' ;
-        $png = 'pngquant.exe --speed 1 --ext=.png --force @file' ;
-        $gif = 'gifsicle.exe -b -O2 @file' ;
+        $cmds = ['jpg' => 'jpegtran.exe -optimize  -progressive -copy none @file @file' ,
+                'png'=> 'pngquant.exe --speed 1 --ext=.png --force @file' ,
+                'gif' => 'gifsicle.exe -b -O2 @file'] ;
 
-        $cmd = str_replace('@file',escapeshellarg($this->file),$$type) ;
+        $cmd = str_replace('@file',escapeshellarg($this->file),$cmds[$type]) ;
         exec( '@'.$bin_path . $cmd, $aOutput, $iResult) ;
         if ($iResult == 0) {
             return true;
         }
-        return $this->err('Execution faild '. $cmd . ' ' . json_encode($aOutput)) ;
+        return $this->err('Execution faild '. '@'.$bin_path . $cmd . ' ' . serialize($iResult).' ' . serialize($aOutput)) ;
     }
 
 }
